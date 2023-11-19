@@ -18,7 +18,9 @@ def make_dir(dir_name):
 
 
 def make_qr_code(value):
-    qr = qrcode.QRCode(version=3, box_size=10, border=2)
+    qr = qrcode.QRCode(version=3, # это целое число от 1 до 40, которое контролирует размер QR-кода (самый маленький version=1 представляет собой матрицу 21x21)
+                       box_size=10, # количество пикселей в каждом "квадрате" QR-кода, разрешение картинки
+                       border=2)
     qr.add_data(value)
     qr_img = qr.make_image(back_color='white', fill_color='black')
     qr_img.save(filename)
