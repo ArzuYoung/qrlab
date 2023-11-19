@@ -60,56 +60,44 @@ windows-1251 или 1450 букв кириллицы в utf-8).
 
 - увеличивала яркость изображения:
 
-<img src="/brightness/done_qr.png" height="150">
-пример qr кода, который еще считывается
+    <img src="/brightness/done_qr.png" height="200"> пример qr кода, который еще считывается
 
-<img src="/brightness/none_qr.png" height="150">
-пример qr кода, который уже не считывается
+    <img src="/brightness/none_qr.png" height="200"> пример qr кода, который уже не считывается
 
 - поворачивала код на различные углы:
 
-<img src="/rotate/done_10_qr.png" height="150">
-пример qr кода, который еще считывается
+    <img src="/rotate/done_10_qr.png" height="200"> пример qr кода, который еще считывается
 
-<img src="/rotate/none_15_qr.png" height="150">
-пример qr кода, который уже не считывается
+    <img src="/rotate/none_15_qr.png" height="200"> пример qr кода, который уже не считывается
 
-Предельное значение поворота 15 градусов (не включая это значение) от прямого угла
+    Предельное значение поворота 15 градусов (не включая это значение) от прямого угла
 (т.е. +-15 градусов от поворота на 0, 90, 180, 270)
 
 - отзеркаливала:
 
-<img src="/flip/vertical_flipqr.png" height="150">
-по вертикали
+    <img src="/flip/vertical_flipqr.png" height="200"> по вертикали
 
-<img src="/flip/horizontal_flip_qr.png" height="150">
-и горизонтали
+    <img src="/flip/horizontal_flip_qr.png" height="200"> и горизонтали
 
-В результате преобразований код декодировался в обоих случаях правильно
+    В результате преобразований код декодировался в обоих случаях правильно
 
 - размывала:
 
-<img src="/blur/done_qr.png" height="150">
-пример qr кода, который еще считывается
+    <img src="/blur/done_qr.png" height="200"> пример qr кода, который еще считывается
 
-<img src="/blur/none_qr.png" height="150">
-пример qr кода, который уже не считывается
+    <img src="/blur/none_qr.png" height="200"> пример qr кода, который уже не считывается
 
-При ядре размытия в 11 пикселей (для изображения 370×370) код перестает считываться
+    При ядре размытия в 11 пикселей (для изображения 370×370) код перестает считываться
 
 - вырезала относительно центра:
 
-<img src="/center_crop/done_qr.png" height="150">
-пример qr кода, который еще считывается
+    <img src="/center_crop/done_qr.png" height="200"> пример qr кода, который еще считывается
 
-<img src="/center_crop/none_qr.png" height="150">
-пример qr кода, который уже не считывается
+    <img src="/center_crop/none_qr.png" height="200"> пример qr кода, который уже не считывается
 
 - закрашивала куски кода в разных углах:
 
-<img src="/center_crop/done_left_down_qr.png" height="150">
-пример qr кода, который еще считывается
+    <img src="/side_crop/done_left_down_qr.png" height="200"> пример qr кода, который еще считывается
 
-<img src="/center_crop/none_left_down_qr.png" height="150">
-пример qr кода, который уже не считывается
+    <img src="/side_crop/none_left_down_qr.png" height="200"> пример qr кода, который уже не считывается
 
