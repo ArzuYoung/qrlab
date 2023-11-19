@@ -110,12 +110,12 @@ def center_crop(name, context, step=5):
     (cX, cY) = (w // 2, h // 2)
     while l > 0:
         cropped_img = img[cX - l:cX + l, cY - l:cY + l]
-        l -= step
         if decode_qr(cropped_img) != context:
             cv2.imwrite(os.path.join(path, dir_name + '/none_' + filename), cropped_img)
             cv2.imwrite(os.path.join(path, dir_name + '/done_' + filename),
-                        img[cX - l + 1:cX + l + 1, cY - l + 1:cY + l + 1])
+                        img[cX - (l + step):cX + (l + step), cY - (l + step):cY + (l + step)])
             break
+        l -= step
 
 
 def side_crop(name, context, angle, step=5):
