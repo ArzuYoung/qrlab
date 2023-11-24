@@ -51,6 +51,46 @@ def decode_code(qr_img):
     return codes[0].data.decode('utf-8')
 
 
+def paint(name, context, code_type, step=1):
+    dir_name = code_type + '/' + 'paint'
+    make_dir(dir_name)
+    img = cv2.imread(name)
+    (h, w) = img.shape[:2]
+    l = step
+    (cX, cY) = (w // 2, h // 2)
+    while l > 0:
+        paint_img = img
+        paint_img[cX - l:cX + l, cY - l:cY + l] = 0
+        if decode_code(paint_img) != context:
+            cv2.imwrite(os.path.join(path, dir_name + '/none_' + name), paint_img)
+            print(l)
+            # cv2.imwrite(os.path.join(path, dir_name + '/done_' + name),
+            #             img[cX - (l + step):cX + (l + step), cY - (l + step):cY + (l + step)])
+            break
+        l += step
+
+
+def zip_code(name, context, code_type, step=1):
+    dir_name = code_type + '/' + 'zip'
+    make_dir(dir_name)
+    img = cv2.imread(name)
+    (w, h) = img.shape[:2]
+    h -= step
+    w -= step
+    zip_img = cv2.resize(img, (h, w))
+    while True:
+        if decode_code(zip_img) == context:
+            h -= step
+            w -= step
+            zip_img = cv2.resize(img, (h, w))
+        else:
+            break
+
+    cv2.imwrite(os.path.join(path, dir_name + '/none_' + name), zip_img)
+    cv2.imwrite(os.path.join(path, dir_name + '/done_' + name),
+                cv2.resize(img, (h + step, w + step)))
+
+
 def brightness_increase(name, context, code_type, step=1, gamma=15):
     dir_name = code_type + '/' + 'brightness'
     make_dir(dir_name)
@@ -175,6 +215,8 @@ def make_augmentations(filename, context, code_type):
     side_crop(filename, context, code_type, 90)
     side_crop(filename, context, code_type, 180)
     side_crop(filename, context, code_type, 270)
+    zip_code(filename, context, code_type)
+    paint(filename, context, code_type)
 
 
 if __name__ == '__main__':
